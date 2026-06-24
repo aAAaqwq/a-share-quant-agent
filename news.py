@@ -251,6 +251,7 @@ def main():
     p.add_argument("--save", help="保存到文件 (路径)")
     p.add_argument("--list-sources", action="store_true", help="列出可用数据源")
     p.add_argument("--no-finance-filter", action="store_true", help="关闭财经关键词过滤（默认开启）")
+    p.add_argument("--snapshot", action="store_true", help="自动快照到 snapshots/ 目录（用于后续验证）")
     args = p.parse_args()
     
     if args.list_sources:
@@ -313,6 +314,16 @@ def main():
     
     # 渲染
     sector_map = load_sector_keywords()
+
+    # 可选：自动快照（用于未来验证源信息）
+    if args.snapshot:
+        snapshot_dir = PROJECT_ROOT / "snapshots"
+        snapshot_dir.mkdir(exist_ok=True)
+        ts = datetime.now().strftime("%Y-%m-%d_%H-%M")
+        snap_path = snapshot_dir / f"{ts}.json"
+        snap_path.write_text(render_json(items, sector_map), encoding="utf-8")
+        print(f"📸 快照已保存: {snap_path}")
+        print(f"   (snapshots/ 中的文件可用于后续验证源信息未被篡改)")
     
     if args.format == "json":
         output = render_json(items, sector_map)

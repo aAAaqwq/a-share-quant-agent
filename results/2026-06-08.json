@@ -1,0 +1,71 @@
+{
+  "date": "2026-06-08",
+  "verified_at": "2026-06-24T09:38:31",
+  "results": [
+    {
+      "code": "600403",
+      "name": "大有能源",
+      "entry_price": 8.06,
+      "exit_reason": "target_hit",
+      "exit_price": 8.463,
+      "pnl_pct": 4.874,
+      "actual_high": 8.58,
+      "actual_low": 8.06,
+      "actual_close": 8.06,
+      "hold_days": 1,
+      "logic": "回填: 2026-06-08日6板龙头"
+    },
+    {
+      "code": "603135",
+      "name": "中重科技",
+      "entry_price": 15.25,
+      "exit_reason": "stop_loss",
+      "exit_price": 14.7925,
+      "pnl_pct": -3.1164,
+      "actual_high": 16.18,
+      "actual_low": 14.3,
+      "actual_close": 15.8,
+      "hold_days": 1,
+      "logic": "回填: 2026-06-08日4板龙头"
+    },
+    {
+      "code": "603500",
+      "name": "祥和实业",
+      "entry_price": 12.79,
+      "exit_reason": "stop_loss",
+      "exit_price": 12.4063,
+      "pnl_pct": -3.1164,
+      "actual_high": 13.48,
+      "actual_low": 11.89,
+      "actual_close": 13.15,
+      "hold_days": 1,
+      "logic": "回填: 2026-06-08日3板龙头"
+    },
+    {
+      "code": "002361",
+      "name": "神剑股份",
+      "entry_price": 18.42,
+      "exit_reason": "stop_loss",
+      "exit_price": 17.8674,
+      "pnl_pct": -3.1164,
+      "actual_high": 18.95,
+      "actual_low": 17.33,
+      "actual_close": 17.75,
+      "hold_days": 1,
+      "logic": "回填: 2026-06-08日2板龙头"
+    },
+    {
+      "code": "002421",
+      "name": "达实智能",
+      "entry_price": 5.99,
+      "exit_reason": "stop_loss",
+      "exit_price": 5.8103,
+      "pnl_pct": -3.1164,
+      "actual_high": 6.16,
+      "actual_low": 5.49,
+      "actual_close": 5.7,
+      "hold_days": 1,
+      "logic": "回填: 2026-06-08日2板龙头"
+    }
+  ]
+}

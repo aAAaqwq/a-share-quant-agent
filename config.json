@@ -1,0 +1,31 @@
+{
+  "project": "a-share-analysis",
+  "version": "1.0.0",
+  "description": "A股热点分析与板块配置字典系统",
+  "news_sources": [
+    "orz_hot",
+    "cls",
+    "eastmoney",
+    "web_search",
+    "rss",
+    "wallstreetcn",
+    "jiucaigongshe"
+  ],
+  "active_sources": [
+    "orz_hot",
+    "cls",
+    "eastmoney",
+    "wallstreetcn"
+  ],
+  "data_refresh_interval_minutes": 30,
+  "market_open_time": "09:30",
+  "market_close_time": "15:00",
+  "venv_python": "./venv/bin/python3",
+  "output_dir": "./reports",
+  "config": {
+    "sector_keywords": "config/sector_keywords.json",
+    "us_mapping": "config/us_mapping.json",
+    "finance_keywords": "config/finance_keywords.json",
+    "sector_stocks_cache": "config/sector_stocks_cache.json"
+  }
+}

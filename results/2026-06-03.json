@@ -1,0 +1,71 @@
+{
+  "date": "2026-06-03",
+  "verified_at": "2026-06-24T09:38:07",
+  "results": [
+    {
+      "code": "600121",
+      "name": "郑州煤电",
+      "entry_price": 5.69,
+      "exit_reason": "target_hit",
+      "exit_price": 5.9745,
+      "pnl_pct": 4.874,
+      "actual_high": 6.25,
+      "actual_low": 5.56,
+      "actual_close": 5.7,
+      "hold_days": 1,
+      "logic": "回填: 2026-06-03日3板龙头"
+    },
+    {
+      "code": "300197",
+      "name": "节能铁汉",
+      "entry_price": 2.87,
+      "exit_reason": "stop_loss",
+      "exit_price": 2.7839,
+      "pnl_pct": -3.1164,
+      "actual_high": 3.22,
+      "actual_low": 2.75,
+      "actual_close": 2.79,
+      "hold_days": 1,
+      "logic": "回填: 2026-06-03日3板龙头"
+    },
+    {
+      "code": "600403",
+      "name": "大有能源",
+      "entry_price": 7.4,
+      "exit_reason": "hold_close",
+      "exit_price": 7.4,
+      "pnl_pct": -0.12,
+      "actual_high": 7.4,
+      "actual_low": 7.4,
+      "actual_close": 7.4,
+      "hold_days": 1,
+      "logic": "回填: 2026-06-03日3板龙头"
+    },
+    {
+      "code": "600367",
+      "name": "红星发展",
+      "entry_price": 45.24,
+      "exit_reason": "hold_close",
+      "exit_price": 46.98,
+      "pnl_pct": 3.7216,
+      "actual_high": 46.98,
+      "actual_low": 45.02,
+      "actual_close": 46.98,
+      "hold_days": 1,
+      "logic": "回填: 2026-06-03日3板龙头"
+    },
+    {
+      "code": "603330",
+      "name": "天洋新材",
+      "entry_price": 8.55,
+      "exit_reason": "stop_loss",
+      "exit_price": 8.2935,
+      "pnl_pct": -3.1164,
+      "actual_high": 9.41,
+      "actual_low": 8.25,
+      "actual_close": 9.41,
+      "hold_days": 1,
+      "logic": "回填: 2026-06-03日3板龙头"
+    }
+  ]
+}

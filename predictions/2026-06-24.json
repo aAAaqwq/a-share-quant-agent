@@ -1,0 +1,62 @@
+{
+  "date": "2026-06-24",
+  "market_context": "回填校准 - 涨停龙头策略",
+  "created_at": "2026-06-24T09:30:00",
+  "picks": [
+    {
+      "code": "603407",
+      "name": "长裕集团",
+      "action": "buy",
+      "strategy": "limit_up_continuation",
+      "entry": "open",
+      "target_pct": 5.0,
+      "stop_loss_pct": -3.0,
+      "hold_days": 1,
+      "logic": "回填: 2026-06-24日4板龙头"
+    },
+    {
+      "code": "600851",
+      "name": "海欣股份",
+      "action": "buy",
+      "strategy": "limit_up_continuation",
+      "entry": "open",
+      "target_pct": 5.0,
+      "stop_loss_pct": -3.0,
+      "hold_days": 1,
+      "logic": "回填: 2026-06-24日4板龙头"
+    },
+    {
+      "code": "002674",
+      "name": "兴业科技",
+      "action": "buy",
+      "strategy": "limit_up_continuation",
+      "entry": "open",
+      "target_pct": 5.0,
+      "stop_loss_pct": -3.0,
+      "hold_days": 1,
+      "logic": "回填: 2026-06-24日4板龙头"
+    },
+    {
+      "code": "000566",
+      "name": "海南海药",
+      "action": "buy",
+      "strategy": "limit_up_continuation",
+      "entry": "open",
+      "target_pct": 5.0,
+      "stop_loss_pct": -3.0,
+      "hold_days": 1,
+      "logic": "回填: 2026-06-24日2板龙头"
+    },
+    {
+      "code": "002687",
+      "name": "乔治白",
+      "action": "buy",
+      "strategy": "limit_up_continuation",
+      "entry": "open",
+      "target_pct": 5.0,
+      "stop_loss_pct": -3.0,
+      "hold_days": 1,
+      "logic": "回填: 2026-06-24日2板龙头"
+    }
+  ]
+}

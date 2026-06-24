@@ -1,0 +1,71 @@
+{
+  "date": "2026-06-05",
+  "verified_at": "2026-06-24T09:38:20",
+  "results": [
+    {
+      "code": "600403",
+      "name": "大有能源",
+      "entry_price": 8.23,
+      "exit_reason": "target_hit",
+      "exit_price": 8.6415,
+      "pnl_pct": 4.874,
+      "actual_high": 8.95,
+      "actual_low": 8.23,
+      "actual_close": 8.95,
+      "hold_days": 1,
+      "logic": "回填: 2026-06-05日5板龙头"
+    },
+    {
+      "code": "603135",
+      "name": "中重科技",
+      "entry_price": 14.28,
+      "exit_reason": "stop_loss",
+      "exit_price": 13.8516,
+      "pnl_pct": -3.1164,
+      "actual_high": 15.43,
+      "actual_low": 13.58,
+      "actual_close": 15.43,
+      "hold_days": 1,
+      "logic": "回填: 2026-06-05日3板龙头"
+    },
+    {
+      "code": "003036",
+      "name": "泰坦股份",
+      "entry_price": 81.12,
+      "exit_reason": "stop_loss",
+      "exit_price": 78.6864,
+      "pnl_pct": -3.1164,
+      "actual_high": 82.33,
+      "actual_low": 74.12,
+      "actual_close": 74.5,
+      "hold_days": 1,
+      "logic": "回填: 2026-06-05日2板龙头"
+    },
+    {
+      "code": "600293",
+      "name": "三峡新材",
+      "entry_price": 3.88,
+      "exit_reason": "target_hit",
+      "exit_price": 4.074,
+      "pnl_pct": 4.874,
+      "actual_high": 4.36,
+      "actual_low": 3.82,
+      "actual_close": 4.13,
+      "hold_days": 1,
+      "logic": "回填: 2026-06-05日2板龙头"
+    },
+    {
+      "code": "000520",
+      "name": "凤凰航运",
+      "entry_price": 4.8,
+      "exit_reason": "stop_loss",
+      "exit_price": 4.656,
+      "pnl_pct": -3.1164,
+      "actual_high": 5.0,
+      "actual_low": 4.47,
+      "actual_close": 4.76,
+      "hold_days": 1,
+      "logic": "回填: 2026-06-05日2板龙头"
+    }
+  ]
+}

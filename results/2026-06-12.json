@@ -1,0 +1,71 @@
+{
+  "date": "2026-06-12",
+  "verified_at": "2026-06-24T09:38:46",
+  "results": [
+    {
+      "code": "002971",
+      "name": "和远气体",
+      "entry_price": 55.76,
+      "exit_reason": "stop_loss",
+      "exit_price": 54.0872,
+      "pnl_pct": -3.1164,
+      "actual_high": 59.9,
+      "actual_low": 52.23,
+      "actual_close": 56.78,
+      "hold_days": 1,
+      "logic": "回填: 2026-06-12日4板龙头"
+    },
+    {
+      "code": "603065",
+      "name": "宿迁联盛",
+      "entry_price": 13.18,
+      "exit_reason": "stop_loss",
+      "exit_price": 12.7846,
+      "pnl_pct": -3.1164,
+      "actual_high": 13.99,
+      "actual_low": 12.35,
+      "actual_close": 13.4,
+      "hold_days": 1,
+      "logic": "回填: 2026-06-12日4板龙头"
+    },
+    {
+      "code": "002203",
+      "name": "海亮股份",
+      "entry_price": 23.0,
+      "exit_reason": "target_hit",
+      "exit_price": 24.15,
+      "pnl_pct": 4.874,
+      "actual_high": 25.5,
+      "actual_low": 22.5,
+      "actual_close": 24.79,
+      "hold_days": 1,
+      "logic": "回填: 2026-06-12日2板龙头"
+    },
+    {
+      "code": "001696",
+      "name": "宗申动力",
+      "entry_price": 22.05,
+      "exit_reason": "stop_loss",
+      "exit_price": 21.3885,
+      "pnl_pct": -3.1164,
+      "actual_high": 23.05,
+      "actual_low": 21.06,
+      "actual_close": 22.85,
+      "hold_days": 1,
+      "logic": "回填: 2026-06-12日2板龙头"
+    },
+    {
+      "code": "000032",
+      "name": "深桑达Ａ",
+      "entry_price": 19.2,
+      "exit_reason": "target_hit",
+      "exit_price": 20.16,
+      "pnl_pct": 4.874,
+      "actual_high": 20.81,
+      "actual_low": 18.75,
+      "actual_close": 20.81,
+      "hold_days": 1,
+      "logic": "回填: 2026-06-12日2板龙头"
+    }
+  ]
+}

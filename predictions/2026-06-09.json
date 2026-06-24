@@ -1,0 +1,62 @@
+{
+  "date": "2026-06-09",
+  "market_context": "回填校准 - 涨停龙头策略",
+  "created_at": "2026-06-09T09:30:00",
+  "picks": [
+    {
+      "code": "002354",
+      "name": "天娱数科",
+      "action": "buy",
+      "strategy": "limit_up_continuation",
+      "entry": "open",
+      "target_pct": 5.0,
+      "stop_loss_pct": -3.0,
+      "hold_days": 1,
+      "logic": "回填: 2026-06-09日3板龙头"
+    },
+    {
+      "code": "002254",
+      "name": "泰和新材",
+      "action": "buy",
+      "strategy": "limit_up_continuation",
+      "entry": "open",
+      "target_pct": 5.0,
+      "stop_loss_pct": -3.0,
+      "hold_days": 1,
+      "logic": "回填: 2026-06-09日3板龙头"
+    },
+    {
+      "code": "603186",
+      "name": "华正新材",
+      "action": "buy",
+      "strategy": "limit_up_continuation",
+      "entry": "open",
+      "target_pct": 5.0,
+      "stop_loss_pct": -3.0,
+      "hold_days": 1,
+      "logic": "回填: 2026-06-09日2板龙头"
+    },
+    {
+      "code": "002747",
+      "name": "埃斯顿",
+      "action": "buy",
+      "strategy": "limit_up_continuation",
+      "entry": "open",
+      "target_pct": 5.0,
+      "stop_loss_pct": -3.0,
+      "hold_days": 1,
+      "logic": "回填: 2026-06-09日2板龙头"
+    },
+    {
+      "code": "001696",
+      "name": "宗申动力",
+      "action": "buy",
+      "strategy": "limit_up_continuation",
+      "entry": "open",
+      "target_pct": 5.0,
+      "stop_loss_pct": -3.0,
+      "hold_days": 1,
+      "logic": "回填: 2026-06-09日2板龙头"
+    }
+  ]
+}

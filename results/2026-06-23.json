@@ -1,0 +1,71 @@
+{
+  "date": "2026-06-23",
+  "verified_at": "2026-06-24T09:39:10",
+  "results": [
+    {
+      "code": "600397",
+      "name": "江钨装备",
+      "entry_price": 24.83,
+      "exit_reason": "stop_loss",
+      "exit_price": 24.0851,
+      "pnl_pct": -3.1164,
+      "actual_high": 25.0,
+      "actual_low": 22.8,
+      "actual_close": 24.52,
+      "hold_days": 1,
+      "logic": "回填: 2026-06-23日5板龙头"
+    },
+    {
+      "code": "002167",
+      "name": "东方锆业",
+      "entry_price": 19.6,
+      "exit_reason": "target_hit",
+      "exit_price": 20.58,
+      "pnl_pct": 4.874,
+      "actual_high": 21.0,
+      "actual_low": 19.6,
+      "actual_close": 20.78,
+      "hold_days": 1,
+      "logic": "回填: 2026-06-23日3板龙头"
+    },
+    {
+      "code": "002068",
+      "name": "黑猫股份",
+      "entry_price": 12.31,
+      "exit_reason": "stop_loss",
+      "exit_price": 11.9407,
+      "pnl_pct": -3.1164,
+      "actual_high": 12.43,
+      "actual_low": 11.64,
+      "actual_close": 11.73,
+      "hold_days": 1,
+      "logic": "回填: 2026-06-23日3板龙头"
+    },
+    {
+      "code": "603407",
+      "name": "长裕集团",
+      "entry_price": 79.53,
+      "exit_reason": "target_hit",
+      "exit_price": 83.5065,
+      "pnl_pct": 4.874,
+      "actual_high": 90.55,
+      "actual_low": 79.11,
+      "actual_close": 90.55,
+      "hold_days": 1,
+      "logic": "回填: 2026-06-23日3板龙头"
+    },
+    {
+      "code": "600851",
+      "name": "海欣股份",
+      "entry_price": 10.55,
+      "exit_reason": "hold_close",
+      "exit_price": 10.69,
+      "pnl_pct": 1.2055,
+      "actual_high": 10.69,
+      "actual_low": 10.36,
+      "actual_close": 10.69,
+      "hold_days": 1,
+      "logic": "回填: 2026-06-23日3板龙头"
+    }
+  ]
+}

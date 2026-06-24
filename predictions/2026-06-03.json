@@ -1,0 +1,62 @@
+{
+  "date": "2026-06-03",
+  "market_context": "回填校准 - 涨停龙头策略",
+  "created_at": "2026-06-03T09:30:00",
+  "picks": [
+    {
+      "code": "600121",
+      "name": "郑州煤电",
+      "action": "buy",
+      "strategy": "limit_up_continuation",
+      "entry": "open",
+      "target_pct": 5.0,
+      "stop_loss_pct": -3.0,
+      "hold_days": 1,
+      "logic": "回填: 2026-06-03日3板龙头"
+    },
+    {
+      "code": "300197",
+      "name": "节能铁汉",
+      "action": "buy",
+      "strategy": "limit_up_continuation",
+      "entry": "open",
+      "target_pct": 5.0,
+      "stop_loss_pct": -3.0,
+      "hold_days": 1,
+      "logic": "回填: 2026-06-03日3板龙头"
+    },
+    {
+      "code": "600403",
+      "name": "大有能源",
+      "action": "buy",
+      "strategy": "limit_up_continuation",
+      "entry": "open",
+      "target_pct": 5.0,
+      "stop_loss_pct": -3.0,
+      "hold_days": 1,
+      "logic": "回填: 2026-06-03日3板龙头"
+    },
+    {
+      "code": "600367",
+      "name": "红星发展",
+      "action": "buy",
+      "strategy": "limit_up_continuation",
+      "entry": "open",
+      "target_pct": 5.0,
+      "stop_loss_pct": -3.0,
+      "hold_days": 1,
+      "logic": "回填: 2026-06-03日3板龙头"
+    },
+    {
+      "code": "603330",
+      "name": "天洋新材",
+      "action": "buy",
+      "strategy": "limit_up_continuation",
+      "entry": "open",
+      "target_pct": 5.0,
+      "stop_loss_pct": -3.0,
+      "hold_days": 1,
+      "logic": "回填: 2026-06-03日3板龙头"
+    }
+  ]
+}

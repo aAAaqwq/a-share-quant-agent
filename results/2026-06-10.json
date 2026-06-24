@@ -1,0 +1,71 @@
+{
+  "date": "2026-06-10",
+  "verified_at": "2026-06-24T09:38:39",
+  "results": [
+    {
+      "code": "002354",
+      "name": "天娱数科",
+      "entry_price": 8.75,
+      "exit_reason": "stop_loss",
+      "exit_price": 8.4875,
+      "pnl_pct": -3.1164,
+      "actual_high": 8.83,
+      "actual_low": 7.98,
+      "actual_close": 7.98,
+      "hold_days": 1,
+      "logic": "回填: 2026-06-10日4板龙头"
+    },
+    {
+      "code": "002636",
+      "name": "金安国纪",
+      "entry_price": 77.44,
+      "exit_reason": "target_hit",
+      "exit_price": 81.312,
+      "pnl_pct": 4.874,
+      "actual_high": 85.16,
+      "actual_low": 77.44,
+      "actual_close": 84.8,
+      "hold_days": 1,
+      "logic": "回填: 2026-06-10日3板龙头"
+    },
+    {
+      "code": "603002",
+      "name": "宏昌电子",
+      "entry_price": 18.335,
+      "exit_reason": "stop_loss",
+      "exit_price": 17.785,
+      "pnl_pct": -3.1164,
+      "actual_high": 18.475,
+      "actual_low": 17.205,
+      "actual_close": 17.885,
+      "hold_days": 1,
+      "logic": "回填: 2026-06-10日2板龙头"
+    },
+    {
+      "code": "002585",
+      "name": "双星新材",
+      "entry_price": 13.16,
+      "exit_reason": "stop_loss",
+      "exit_price": 12.7652,
+      "pnl_pct": -3.1164,
+      "actual_high": 13.48,
+      "actual_low": 12.08,
+      "actual_close": 12.42,
+      "hold_days": 1,
+      "logic": "回填: 2026-06-10日2板龙头"
+    },
+    {
+      "code": "605006",
+      "name": "山东玻纤",
+      "entry_price": 21.49,
+      "exit_reason": "stop_loss",
+      "exit_price": 20.8453,
+      "pnl_pct": -3.1164,
+      "actual_high": 22.56,
+      "actual_low": 20.66,
+      "actual_close": 22.26,
+      "hold_days": 1,
+      "logic": "回填: 2026-06-10日2板龙头"
+    }
+  ]
+}

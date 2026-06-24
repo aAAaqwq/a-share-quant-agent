@@ -1,0 +1,71 @@
+{
+  "date": "2026-06-04",
+  "verified_at": "2026-06-24T09:38:15",
+  "results": [
+    {
+      "code": "600367",
+      "name": "XD红星发",
+      "entry_price": 48.65,
+      "exit_reason": "stop_loss",
+      "exit_price": 47.1905,
+      "pnl_pct": -3.1164,
+      "actual_high": 51.68,
+      "actual_low": 46.12,
+      "actual_close": 49.5,
+      "hold_days": 1,
+      "logic": "回填: 2026-06-04日4板龙头"
+    },
+    {
+      "code": "603330",
+      "name": "天洋新材",
+      "entry_price": 10.15,
+      "exit_reason": "stop_loss",
+      "exit_price": 9.8455,
+      "pnl_pct": -3.1164,
+      "actual_high": 10.35,
+      "actual_low": 8.54,
+      "actual_close": 8.61,
+      "hold_days": 1,
+      "logic": "回填: 2026-06-04日4板龙头"
+    },
+    {
+      "code": "600403",
+      "name": "大有能源",
+      "entry_price": 7.4,
+      "exit_reason": "target_hit",
+      "exit_price": 7.77,
+      "pnl_pct": 4.874,
+      "actual_high": 8.14,
+      "actual_low": 7.35,
+      "actual_close": 8.14,
+      "hold_days": 1,
+      "logic": "回填: 2026-06-04日4板龙头"
+    },
+    {
+      "code": "600255",
+      "name": "鑫科材料",
+      "entry_price": 4.5,
+      "exit_reason": "target_hit",
+      "exit_price": 4.725,
+      "pnl_pct": 4.874,
+      "actual_high": 4.77,
+      "actual_low": 4.46,
+      "actual_close": 4.49,
+      "hold_days": 1,
+      "logic": "回填: 2026-06-04日3板龙头"
+    },
+    {
+      "code": "001896",
+      "name": "豫能控股",
+      "entry_price": 23.01,
+      "exit_reason": "stop_loss",
+      "exit_price": 22.3197,
+      "pnl_pct": -3.1164,
+      "actual_high": 24.04,
+      "actual_low": 19.88,
+      "actual_close": 19.88,
+      "hold_days": 1,
+      "logic": "回填: 2026-06-04日2板龙头"
+    }
+  ]
+}

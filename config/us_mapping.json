@@ -1,0 +1,122 @@
+{
+  "SOX(费城半导体)": {
+    "cn_sectors": ["半导体", "芯片", "光刻机", "CPO"],
+    "tracking": ".SOX"
+  },
+  "NVDA(英伟达)": {
+    "cn_sectors": ["AI算力", "CPO", "服务器", "GPU", "半导体"],
+    "tracking": "NVDA"
+  },
+  "ARKK(创新ETF)": {
+    "cn_sectors": ["人工智能", "机器人", "自动驾驶", "合成生物"],
+    "tracking": "ARKK"
+  },
+  "XBI(生物科技)": {
+    "cn_sectors": ["创新药", "CXO", "医药"],
+    "tracking": "XBI"
+  },
+  "TAN(太阳能)": {
+    "cn_sectors": ["光伏", "储能", "电力"],
+    "tracking": "TAN"
+  },
+  "LIT(锂电池)": {
+    "cn_sectors": ["锂电池", "新能源车", "有色", "储能"],
+    "tracking": "LIT"
+  },
+  "URA(铀矿)": {
+    "cn_sectors": ["核电", "有色"],
+    "tracking": "URA"
+  },
+  "TSLA(特斯拉)": {
+    "cn_sectors": ["新能源车", "机器人", "汽车零部件", "智能驾驶", "储能"],
+    "tracking": "TSLA"
+  },
+  "AAPL(苹果)": {
+    "cn_sectors": ["消费电子", "苹果链", "AI手机", "MR"],
+    "tracking": "AAPL"
+  },
+  "MSFT(微软)": {
+    "cn_sectors": ["AI", "云计算", "软件", "算力"],
+    "tracking": "MSFT"
+  },
+  "XLF(金融)": {
+    "cn_sectors": ["券商", "银行", "保险"],
+    "tracking": "XLF"
+  },
+  "GDX(金矿)": {
+    "cn_sectors": ["黄金", "有色"],
+    "tracking": "GDX"
+  },
+  "GOOGL(谷歌)": {
+    "cn_sectors": ["人工智能", "量子计算", "云计算", "AI", "广告"],
+    "tracking": "GOOGL"
+  },
+  "AMZN(亚马逊)": {
+    "cn_sectors": ["云计算", "AI", "电商", "物流", "消费"],
+    "tracking": "AMZN"
+  },
+  "META(Meta)": {
+    "cn_sectors": ["元宇宙", "AI", "消费电子", "MR", "广告"],
+    "tracking": "META"
+  },
+  "AMD(AMD)": {
+    "cn_sectors": ["半导体", "GPU", "AI算力", "服务器"],
+    "tracking": "AMD"
+  },
+  "SMH(半导体ETF)": {
+    "cn_sectors": ["半导体", "芯片", "设备", "材料", "CPO"],
+    "tracking": "SMH"
+  },
+  "QQQ(纳斯达克100)": {
+    "cn_sectors": ["科技", "AI", "半导体", "互联网"],
+    "tracking": "QQQ"
+  },
+  "IWM(罗素2000)": {
+    "cn_sectors": ["小盘股"],
+    "tracking": "IWM"
+  },
+  "GLD(黄金ETF)": {
+    "cn_sectors": ["黄金", "有色"],
+    "tracking": "GLD"
+  },
+  "USO(原油ETF)": {
+    "cn_sectors": ["石油", "化工"],
+    "tracking": "USO"
+  },
+  "VNM(越南ETF)": {
+    "cn_sectors": ["消费电子链", "制造业"],
+    "tracking": "VNM"
+  },
+  "FXI(中国大盘ETF)": {
+    "cn_sectors": ["港股", "中概股"],
+    "tracking": "FXI"
+  },
+  "KWEB(中概互联网)": {
+    "cn_sectors": ["互联网", "AI", "游戏", "电商"],
+    "tracking": "KWEB"
+  },
+  "XLE(能源)": {
+    "cn_sectors": ["石油", "煤炭", "电力"],
+    "tracking": "XLE"
+  },
+  "XLK(科技)": {
+    "cn_sectors": ["半导体", "软件", "消费电子", "AI"],
+    "tracking": "XLK"
+  },
+  "XLV(医疗健康)": {
+    "cn_sectors": ["医药", "创新药", "医疗器械", "CXO"],
+    "tracking": "XLV"
+  },
+  "XLY(可选消费)": {
+    "cn_sectors": ["消费", "新能源车", "游戏"],
+    "tracking": "XLY"
+  },
+  "XLI(工业)": {
+    "cn_sectors": ["军工", "机器人", "基建", "物流"],
+    "tracking": "XLI"
+  },
+  "XLB(原材料)": {
+    "cn_sectors": ["化工", "有色", "钢铁"],
+    "tracking": "XLB"
+  }
+}

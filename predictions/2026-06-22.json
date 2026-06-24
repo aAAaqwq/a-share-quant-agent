@@ -1,0 +1,62 @@
+{
+  "date": "2026-06-22",
+  "market_context": "回填校准 - 涨停龙头策略",
+  "created_at": "2026-06-22T09:30:00",
+  "picks": [
+    {
+      "code": "600353",
+      "name": "旭光电子",
+      "action": "buy",
+      "strategy": "limit_up_continuation",
+      "entry": "open",
+      "target_pct": 5.0,
+      "stop_loss_pct": -3.0,
+      "hold_days": 1,
+      "logic": "回填: 2026-06-22日5板龙头"
+    },
+    {
+      "code": "603989",
+      "name": "艾华集团",
+      "action": "buy",
+      "strategy": "limit_up_continuation",
+      "entry": "open",
+      "target_pct": 5.0,
+      "stop_loss_pct": -3.0,
+      "hold_days": 1,
+      "logic": "回填: 2026-06-22日4板龙头"
+    },
+    {
+      "code": "600397",
+      "name": "江钨装备",
+      "action": "buy",
+      "strategy": "limit_up_continuation",
+      "entry": "open",
+      "target_pct": 5.0,
+      "stop_loss_pct": -3.0,
+      "hold_days": 1,
+      "logic": "回填: 2026-06-22日4板龙头"
+    },
+    {
+      "code": "000811",
+      "name": "冰轮环境",
+      "action": "buy",
+      "strategy": "limit_up_continuation",
+      "entry": "open",
+      "target_pct": 5.0,
+      "stop_loss_pct": -3.0,
+      "hold_days": 1,
+      "logic": "回填: 2026-06-22日3板龙头"
+    },
+    {
+      "code": "000657",
+      "name": "中钨高新",
+      "action": "buy",
+      "strategy": "limit_up_continuation",
+      "entry": "open",
+      "target_pct": 5.0,
+      "stop_loss_pct": -3.0,
+      "hold_days": 1,
+      "logic": "回填: 2026-06-22日2板龙头"
+    }
+  ]
+}

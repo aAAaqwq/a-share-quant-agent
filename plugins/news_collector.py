@@ -53,6 +53,6 @@ async def collect_all(active_sources=None, finance_keywords=None):
     
     return deduped
 
-def collect_sync(active_sources=None):
+def collect_sync(active_sources=None, finance_keywords=None):
     """同步包装器"""
-    return asyncio.run(collect_all(active_sources))
+    return asyncio.run(collect_all(active_sources, finance_keywords=finance_keywords))

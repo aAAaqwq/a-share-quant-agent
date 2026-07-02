@@ -32,6 +32,21 @@ htmlcov/
 .env
 .env.local
 
-# Reports (保留结构,不包含历史)
+# Reports (保留结构,不包含每日历史)
 reports/*.md
 reports/*.json
+# 但保留 CI 生成的聚合统计快照 (weekly-stats.yml / daily.yml verify 会提交这两个文件)
+!reports/stats-latest.md
+!reports/weekly-stats.md
+
+# 本地缓存 (news.py 主题快照 / cache_sectors.py)
+cache/
+
+# 参考项目 (学习用, 不纳入本仓库)
+_reference/
+
+# 归档的旧数据 (v1 个股 P&L 历史, 可逆保留)
+_archive/
+
+# KV 本地后端存储
+cloud/_kvstore/

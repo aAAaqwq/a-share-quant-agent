@@ -16,6 +16,8 @@ import time
 # 多源容灾 + 数据校验
 from plugins.multi_source import msd
 from plugins.validator import validator
+# 熔断器：死源自动跳过，避免反复硬捶
+from plugins.data_quality import data_source_breaker
 
 
 class AShareDataLayer:
@@ -55,12 +57,20 @@ class AShareDataLayer:
             fn的返回值；若全部重试失败则返回空DataFrame
         """
         fn_name = getattr(fn, '__name__', str(fn))
+
+        # 熔断器：该源近期连续失败则直接跳过，避免对死源反复硬捶
+        if not data_source_breaker.is_available(fn_name):
+            print(f"[DataLayer] {fn_name} 熔断中，跳过（冷却后自动重试）")
+            return pd.DataFrame()
+
         for attempt in range(self.retry):
             try:
                 result = fn(*args, **kwargs)
+                data_source_breaker.record_success(fn_name)
                 return result
             except Exception as e:
                 if attempt == self.retry - 1:
+                    data_source_breaker.record_failure(fn_name, str(e))
                     print(
                         f"[DataLayer] {fn_name} failed after "
                         f"{self.retry} attempts: {e}"
@@ -246,12 +256,16 @@ class AShareDataLayer:
         )
 
     def get_north_flow(self) -> pd.DataFrame:
-        """北向资金（沪深股通）净流入
+        """北向资金（沪深股通）历史净流入
+
+        注意: 东方财富自 2024-08 起停止实时披露北向资金分钟级净流入，
+        原 `stock_hsgt_north_net_flow_in_em` 已从 AKShare 移除。此处改用
+        `stock_hsgt_hist_em` 拉取历史日级数据（近端数值可能为空）。
 
         Returns:
-            DataFrame，含每日北向资金净流入额
+            DataFrame，含每日北向资金净买额等字段
         """
-        return self._call_with_retry(ak.stock_hsgt_north_net_flow_in_em)
+        return self._call_with_retry(ak.stock_hsgt_hist_em, symbol="北向资金")
 
     # ── 全球指数 ──────────────────────────────────────────
 

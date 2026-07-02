@@ -1,166 +1,117 @@
-# 📈 A-股量化投资分析 Agent
+# 📈 A股板块预测研究系统 v2
 
-> AI 驱动的 A 股投资分析系统 — 涨停池采集 / 盘面阅读 / 个股精选 / 实盘验证 全链路自动化
+> 研究目标:**找到"主力板块 / 主力方向"判断的 edge**。
+> 盘前 agent 批量分析 → 竞价双轨验证 → KV 实时看板 → **人工决策**。
 
-[![Python](https://img.shields.io/badge/Python-3.14+-blue.svg)](https://www.python.org/)
+[![Python](https://img.shields.io/badge/Python-3.11+-blue.svg)](https://www.python.org/)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![AKShare](https://img.shields.io/badge/Data-AKShare-orange.svg)](https://akshare.akfamily.xyz/)
 
-## ✨ 核心能力
+> ⚠️ **诚实声明**:这是一个**研究项目,目前没有已证实的 edge**。旧的"个股开盘买收盘卖"
+> P&L 回测(累计 -5.98%)已弃用并归档 —— 它衡量的不是我们要找的东西。现在的标尺是
+> **板块判断准确率**。本项目仅供研究学习,不构成任何投资建议。
 
-| 模块 | 功能 | 状态 |
+## 🎯 系统定位(v2)
+
+```
+① 脚本批量获取数据(新闻/行情/涨停)   —— 确定性管道, 带数据质量打标
+        ↓
+② 盘前 agent 批量分析                 —— 去重 + 因果分析, 剔除旧/虚假/无效信息
+   产出: 主力板块 + 主力方向 + 15 候选涨停(附逻辑)
+        ↓
+③ 竞价(9:15–9:25 @30s)+ 盘中(@1h)双轨验证  —— 确定性脚本, 非 agent 实时
+        ↓
+④ Cloudflare KV + Pages 实时看板       —— 预测 vs 实况, 顶部死活灯
+        ↓
+⑤ 人工决策(系统不自动下单)
+```
+
+设计意图与逐条决策见 [`docs/intent/a-share-v2.md`](docs/intent/a-share-v2.md)。
+
+## 🏗️ 建设进度
+
+| 阶段 | 内容 | 状态 |
 |------|------|------|
-| 🔍 **情报采集** | 7 路并发新闻源 (财联社/华尔街见闻/东方财富/新浪/orz.ai/RSS/搜索) | ✅ |
-| 📊 **盘面分析** | 美股映射 + 大盘多空 + 实时主线 (9% 涨幅以上题材) | ✅ |
-| 🎯 **个股精选** | 五维评分: 产业逻辑 + K 线形态 + 盘口 + 板块排名 + 事件 | ✅ |
-| 📝 **日报生成** | Markdown 报告 + TOP3 深度分析 | ✅ |
-| 💾 **预测落库** | JSON 格式 predictions/results 分日管理 | ✅ |
-| ✅ **实盘验证** | 次日开盘买入 + 止盈止损模拟 + 成本模型 | ✅ |
-| 📈 **基线校准** | 历史回填 15 天 70 样本,生成胜率/盈亏比统计 | ✅ |
+| **①** | 数据准确度层(熔断器/质量标签)+ 板块判断双轨记分 + v2 预测记录 + KV 客户端 + 闭环 | ✅ 已完成(26 单测) |
+| ② | agent 盘前分析流程 + SKILL.md 手册 + prediction schema | ⏳ |
+| ③ | 竞价双轨验证 + 可插拔竞价数据源 | ⏳ |
+| ④ | Cloudflare KV + Pages 实时看板 | ⏳ |
+| ⑤ | 部署:VPS/本地 systemd + 心跳 | ⏳ |
 
-## 🚀 快速开始
+## 📊 板块判断记分口径
 
-```bash
-# 1. 克隆
-git clone https://github.com/aAAaqwq/a-share-quant-agent.git
-cd a-share-quant-agent
+> 不再以个股 P&L 为主指标。**D 双轨**:竞价当场 + 收盘复核。
 
-# 2. 安装依赖
-python3 -m venv venv
-source venv/bin/activate
-pip install akshare pandas numpy aiohttp feedparser openpyxl
+| 维度 | 命中规则 |
+|------|---------|
+| **主力板块** | 预测板块按【次日涨停家数】排名,**Top 3 = hit**,4–8 = neutral,>8 = miss |
+| **主力方向** | 预测方向 vs 次日实际涨幅,**±2% 中性带** |
 
-# 3. 一键运行 (盘前情报)
-./daily_run.sh
-
-# 4. 实盘验证 (15:30 自动 / 手动)
-python backtester.py verify-all
-```
-
-## 🧠 系统架构
-
-```
-┌─────────────────────────────────────────────────────┐
-│              📈 A股量化分析系统                        │
-├─────────────────────────────────────────────────────┤
-│                                                       │
-│  ┌──────────┐  ┌──────────┐  ┌──────────┐           │
-│  │ 模块一   │  │ 模块二   │  │ 模块三   │           │
-│  │ 情报采集 │→│ 盘面阅读 │→│ 个股精选 │           │
-│  │          │  │          │  │          │           │
-│  │ 7源并发  │  │ 美股映射  │  │ 5维评分  │           │
-│  │ 去重匹配  │  │ 大盘多空  │  │ 8形态    │           │
-│  └──────────┘  └──────────┘  └──────────┘           │
-│        ↓              ↓             ↓                │
-│        └──────────────┴─────────────┘                │
-│                       ↓                              │
-│              ┌──────────────┐                        │
-│              │  编排 + 报告  │                        │
-│              └──────────────┘                        │
-│                       ↓                              │
-│              ┌──────────────┐                        │
-│              │ 预测落库 + 验证│ ← 实盘日志闭环         │
-│              └──────────────┘                        │
-│                                                       │
-└─────────────────────────────────────────────────────┘
-```
-
-## 📊 8 种 K 线形态识别
-
-| 形态 | 信号 | 期望收益 |
-|------|------|----------|
-| 突破平台 | 横盘蓄势向上 | +5% ~ +15% |
-| 趋势新高 | 沿 5/10 日均线持续新高 | +3% ~ +8% |
-| 新高附近 | 距 60 日新高 < 3% | +2% ~ +6% |
-| N 连板 | 连续涨停追板 | 高波动/高风险 |
-| 老龙二波 | 前期龙头回踩启动 | +10% ~ +30% |
-| 分歧转一致 | 烂板次日转强 | +5% ~ +10% |
-| 反包板 | 阴包阳形态修复 | +3% ~ +8% |
-| 放量首板 | 首次涨停 + 巨量 | +5% ~ +12% |
-
-## 💰 成本模型
-
-```python
-# 买入
-buy_cost = entry_price × 1.00035
-  # = 滑点 0.01% + 佣金 0.025% (单边)
-
-# 卖出
-sell_revenue = exit_price × 0.99915
-  # = 滑点 0.01% + 佣金 0.025% + 印花税 0.05%
-
-# 实际收益
-pnl_pct = (sell_revenue - buy_cost) / buy_cost × 100
-```
+准确率 = hit /(hit + miss),中性(未证伪)不计入分母。
 
 ## 📁 目录结构
 
 ```
 a-share-quant-agent/
-├── SKILL.md                     # 项目文档
-├── orchestrator.py              # 三模块编排器
-├── reporter.py                  # 日报生成器
-├── daily_run.sh                 # 一键运行
-├── tracker.py                   # 预测落库 + 统计
-├── backtester.py                # 次日验证引擎
-├── backfill.py                  # 历史回填
-├── config/                      # 配置文件
-│   ├── sector_keywords.json    # 板块关键词映射 (30+ 板块)
-│   ├── us_mapping.json         # 美股 → A 股映射
-│   └── finance_keywords.json   # 财经过滤词
-├── engines/                     # 分析引擎
-│   ├── module2_market.py       # 盘面分析
-│   ├── module3_stocks.py       # 个股精选
-│   └── indicators.py           # 技术指标
-├── plugins/                     # 数据源
-│   ├── news_collector.py       # 7 源新闻采集
-│   ├── data_layer.py           # A 股数据层
-│   └── base.py                 # 插件基类
-├── predictions/                 # 历史预测 (YYYY-MM-DD.json)
-└── results/                     # 验证结果 (YYYY-MM-DD.json)
+├── config.json                  # 全局配置 (数据源 / 竞价窗口 / 刷新频率)
+├── requirements.txt
+├── plugins/                     # ① 数据生产层 (脚本批量获取)
+│   ├── data_layer.py           # AKShare 封装 (重试 + 熔断 + 降级)
+│   ├── data_quality.py         # 熔断器 + 数据质量标签 + 时效判断
+│   ├── news_collector.py       # 多源并发新闻采集
+│   ├── cls_flash.py / orz_hot.py / eastmoney_news.py / ...  # 各新闻源插件
+│   ├── multi_source.py         # 新浪/腾讯容灾行情
+│   └── validator.py            # 数据校验层
+├── engines/                     # 板块预测闭环 (v2 核心)
+│   ├── sector_scorer.py        # 板块判断双轨记分 (找 edge 的标尺)
+│   ├── prediction_record.py    # v2 统一预测记录 (板块+候选+双轨评估+上云)
+│   └── sector_pipeline.py      # save → score → stats + 推 KV
+├── cloud/
+│   └── kv_client.py            # Cloudflare KV / 本地文件 双后端
+├── config/                      # 板块关键词 / 美股映射 / 财经过滤词
+├── docs/
+│   ├── intent/a-share-v2.md    # 意图确认书
+│   └── design/kv-storage.md    # KV 存储方案
+├── test_*.py                    # 单元测试 (data_quality / sector_scorer / prediction_record / sector_pipeline)
+├── predictions/  (运行时生成)   # v2 预测记录
+└── results/      (运行时生成)   # 收盘复核结果
 ```
 
-## 🔧 CLI 命令
+## 🚀 快速开始
 
 ```bash
-# 盘前情报
-./daily_run.sh
+# 安装
+python3 -m venv venv && source venv/bin/activate
+pip install -r requirements.txt
 
-# 落库预测
-python tracker.py save --date 2026-06-24 --picks '<JSON>'
-
-# 统计胜率 (近 N 日)
-python tracker.py stats --days 20
-
-# 次日验证
-python backtester.py verify --date 2026-06-24
-python backtester.py verify-all
-python backtester.py show --date 2026-06-24
-
-# 历史回填
-python backfill.py
+# 运行测试(离线, 无网络)
+./venv/bin/python3 test_data_quality.py
+./venv/bin/python3 test_sector_scorer.py
+./venv/bin/python3 test_prediction_record.py
+./venv/bin/python3 test_sector_pipeline.py
 ```
 
-## 📈 基线校准结果
+## 🔧 板块预测闭环 CLI(`engines/sector_pipeline.py`)
 
-> 15 个交易日 / 70 个样本 / 策略: 涨停龙头 +5% / -3% / 1 日持仓
+```bash
+# 保存 v2 板块预测(agent 产出后)
+./venv/bin/python3 engines/sector_pipeline.py save --record @pred.json
 
-| 指标 | 数值 |
-|------|------|
-| 胜率 | 32.86% |
-| 止损率 | 57.14% |
-| 平均收益 | -0.08% |
-| 最大单笔盈利 | +4.87% |
-| 最大单笔亏损 | -3.12% |
+# 收盘复核打分(实时抓涨停家数; 或 --counts 注入离线回放)
+./venv/bin/python3 engines/sector_pipeline.py score --date 2026-07-02 --direction-pct 3.1
 
-⚠️ 简单策略勉强盈亏平衡,需要根据板块 / 板数 / 持仓期做策略优化。
+# 板块判断准确率
+./venv/bin/python3 engines/sector_pipeline.py stats --days 20
+```
+
+KV 后端由环境变量自动选择:配了 `CF_ACCOUNT_ID`/`CF_KV_NAMESPACE_ID`/`CF_API_TOKEN`
+走 Cloudflare,否则落本地文件(`cloud/_kvstore/`)—— 本地和 VPS 同一份代码。
 
 ## ⚠️ 风险声明
 
-- **本项目仅供学习研究使用,不构成任何投资建议**
-- A 股 T+1 制度,所有"开盘买收盘卖"策略均不可直接执行
-- 历史回测不代表未来收益,实盘请谨慎
-- 涉及金额请根据个人风险承受能力严格控制
+- 本项目仅供学习研究,**不构成任何投资建议**,目前无已证实 edge。
+- A 股 T+1,所有"开盘买收盘卖"策略不可直接执行。
+- 最终决策由人工判断,系统不自动下单。
 
 ## 📜 License
 

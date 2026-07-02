@@ -16,8 +16,13 @@
 | `pred:latest` | 今日完整预测记录(v2 `to_kv_payload`) | 盘前 GH Actions | 1 次/日, 收盘更新评估 |
 | `pred:{YYYY-MM-DD}` | 按日归档的预测记录 | 盘前 + 收盘 | 2 次/日 |
 | `pred:dates` | 历史日期索引 `["2026-07-02", ...]` | 盘前 | 1 次/日 |
-| `live:latest` | 竞价/盘中高频小 blob(竞价强度、实时双轨分、15 候选实时状态) | 竞价/盘中常驻脚本 | **竞价 30s / 盘中 1h** |
+| `live:latest` | 竞价/盘中高频小 blob(竞价轨打分、**动态候选+实时涨跌幅**、兑现率、板块强势家数) | 竞价/盘中常驻脚本(`intraday_puller.py`) | **竞价 30s / 盘中 1h** |
+| `news:latest` | 相关资讯 feed `{as_of, items:[{title,snippet,url,source,hot_score}]}` | `intraday_puller.py`(盘前 + 每小时) | 低频 |
 | `meta:heartbeat` | `{last_update, epoch, phase}` 死活灯 | 每次推送 | 同上 |
+
+`live:latest` 由 `engines/auction_monitor.build_live_blob()` 组装:候选按竞价涨跌幅
+**动态重排**(非固定 15)、剔除走弱、并入新晋强势;竞价轨打分复用 `sector_scorer`
+(竞价强势家数排名 + 大盘竞价涨幅方向)。数据源 `plugins/auction_source.py` 可插拔。
 
 **关键设计**: 30s 高频只覆写 `live:latest` + `meta:heartbeat` 两个**小** blob,
 绝不重写大的 `pred:latest`。既省写入配额, 又不会覆盖盘前预测正本。

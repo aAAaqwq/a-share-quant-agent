@@ -30,6 +30,7 @@ PROJECT_ROOT = Path(__file__).resolve().parent.parent
 # ── 键名约定 ──────────────────────────────────────────────
 KEY_PRED_LATEST = "pred:latest"      # 今日完整预测记录(盘前写, 收盘更新评估)
 KEY_LIVE_LATEST = "live:latest"      # 竞价/盘中高频小 blob(30s/1h 覆写)
+KEY_NEWS_LATEST = "news:latest"      # 相关资讯 feed(盘前 + 盘中定时刷新)
 KEY_HEARTBEAT = "meta:heartbeat"     # 死活灯 {last_update, phase}
 KEY_DATES = "pred:dates"             # 历史日期索引 []
 
@@ -155,6 +156,16 @@ class PredictionKV:
         """竞价/盘中: 覆写高频小 blob + 心跳。30s/1h 只动这个, 不碰大预测记录。"""
         self.backend.put(KEY_LIVE_LATEST, live_blob)
         self.write_heartbeat(phase=phase)
+
+    def write_news(self, items: list, as_of: Optional[str] = None) -> None:
+        """写相关资讯 feed。items: [{title,snippet,url,source,hot_score,sectors}]"""
+        self.backend.put(KEY_NEWS_LATEST, {
+            "as_of": as_of or time.strftime("%Y-%m-%dT%H:%M:%S"),
+            "items": items,
+        })
+
+    def read_news(self) -> Optional[dict]:
+        return self.backend.get(KEY_NEWS_LATEST)
 
     def write_heartbeat(self, phase: str = "") -> None:
         self.backend.put(KEY_HEARTBEAT, {

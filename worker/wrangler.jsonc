@@ -1,0 +1,15 @@
+{
+  // A股板块预测 — 实时看板 Worker
+  // 部署: cd worker && npx wrangler deploy
+  "name": "a-share-dashboard",
+  "main": "src/index.js",
+  "compatibility_date": "2026-01-01",
+  "observability": { "enabled": true },
+  // 绑定 KV(与 Python 侧 cloud/kv_client.py 写入同一 namespace)
+  "kv_namespaces": [
+    {
+      "binding": "ASHARE_KV",
+      "id": "bd504a3293d84c51beeb62c2fa126c4a"
+    }
+  ]
+}

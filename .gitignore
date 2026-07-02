@@ -50,3 +50,7 @@ _archive/
 
 # KV 本地后端存储
 cloud/_kvstore/
+
+# wrangler 本地状态
+worker/.wrangler/
+worker/node_modules/
